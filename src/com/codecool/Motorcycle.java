@@ -17,17 +17,15 @@ public class Motorcycle extends Vehicle {
         int pickedNumberForSlowing = randomNumber.nextInt(45) + 6;
 
         if (Weather.isRaining()) {
-            setSpeed(100 - pickedNumberForSlowing);
-
-            int actualSpeed = getSpeed();
-
-            if (race.isThereABrokenTruck() && getSpeed() > 75) {
-                setSpeed(75);
-            } else if (!race.isThereABrokenTruck()) {
-                setSpeed(actualSpeed);
+            if (race.isThereABrokenTruck() && (100 - pickedNumberForSlowing) > 75) {
+                updateDistanceTraveled(75);
+            } else if (race.isThereABrokenTruck() && (100 - pickedNumberForSlowing) < 75) {
+                updateDistanceTraveled(100 - pickedNumberForSlowing);
             }
+        } else if (!Weather.isRaining() && race.isThereABrokenTruck()) {
+            updateDistanceTraveled(75);
+        } else {
+            updateDistanceTraveled(getSpeed());
         }
-
-        updateDistanceTraveled(getSpeed());
     }
 }

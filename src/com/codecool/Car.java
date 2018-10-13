@@ -25,15 +25,12 @@ public class Car extends Vehicle {
 
     @Override
     public void moveForAnHour(Race race) {
-        int actualSpeed = getSpeed();
 
         if (race.isThereABrokenTruck()) {
-            setSpeed(75);
+            updateDistanceTraveled(75);
         } else {
-            setSpeed(actualSpeed);
+            updateDistanceTraveled(getSpeed());
         }
-
-        updateDistanceTraveled(getSpeed());
     }
 
 }
