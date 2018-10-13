@@ -3,6 +3,7 @@ package com.codecool;
 public class Race {
 
     public static void main(String[] args) {
-        System.out.println("haha");
+        Weather.setRaining();
+        System.out.println(Weather.isRaining());
     }
 }
