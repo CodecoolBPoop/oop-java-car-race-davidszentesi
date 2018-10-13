@@ -1,4 +1,13 @@
 package com.codecool;
 
-public class Truck {
+import java.util.Random;
+
+public class Truck extends Vehicle {
+
+    public Truck() {
+        setSpeed(100);
+
+        Random randomNumber = new Random();
+        setName("Truck " + randomNumber.nextInt(1001));
+    }
 }
