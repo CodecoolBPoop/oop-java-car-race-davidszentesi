@@ -8,4 +8,8 @@ public class Motorcycle extends Vehicle {
         setSpeed(100);
         setName("Motorcycle " + nameNumber++);
     }
+
+    public void moveForAnHour(Race race) {
+        updateDistanceTraveled(getSpeed());
+    }
 }

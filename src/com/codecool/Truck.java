@@ -10,4 +10,8 @@ public class Truck extends Vehicle {
         Random randomNumber = new Random();
         setName("Truck " + randomNumber.nextInt(1001));
     }
+
+    public void moveForAnHour(Race race) {
+        updateDistanceTraveled(getSpeed());
+    }
 }

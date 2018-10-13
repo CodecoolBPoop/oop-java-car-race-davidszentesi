@@ -1,23 +1,39 @@
 package com.codecool;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Race {
 
+    private List<Vehicle> vehicles = new LinkedList<>();
+
+    private void createVehicles() {
+        for (int i = 0; i < 10; i++) {
+            vehicles.add(new Car());
+            vehicles.add(new Truck());
+            vehicles.add(new Motorcycle());
+        }
+    }
+
+    private void simulateRace() {
+        for (int i = 0; i < 50; i++) {
+            Weather.setRaining();
+            for (Vehicle vehicle: vehicles) {
+                vehicle.moveForAnHour(this);
+            }
+        }
+    }
+
+    private void printRaceResults() {
+        for (Vehicle vehicle: vehicles) {
+            System.out.println(vehicle.getName() + ": " + vehicle.getDistanceTraveled());
+        }
+    }
+
     public static void main(String[] args) {
-        Weather.setRaining();
-        System.out.println(Weather.isRaining());
-
-        Car car = new Car();
-        System.out.println(car.getName());
-        System.out.println(car.getSpeed());
-
-        Motorcycle motor1 = new Motorcycle();
-        Motorcycle motor2 = new Motorcycle();
-        System.out.println(motor1.getName());
-        System.out.println(motor2.getName());
-
-        Truck truck1 = new Truck();
-        Truck truck2 = new Truck();
-        System.out.println(truck1.getName());
-        System.out.println(truck2.getName());
+        Race race = new Race();
+        race.createVehicles();
+        race.simulateRace();
+        race.printRaceResults();
     }
 }

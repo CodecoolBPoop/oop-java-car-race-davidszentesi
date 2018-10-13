@@ -23,4 +23,8 @@ public class Car extends Vehicle {
         setName(carNames[pickedNumberForFirstName] + carNames[pickedNumberForLastName]);
     }
 
+    public void moveForAnHour(Race race) {
+        updateDistanceTraveled(getSpeed());
+    }
+
 }

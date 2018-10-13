@@ -4,25 +4,31 @@ public abstract class Vehicle {
 
     private int speed;
     private String name;
-    int distanceTraveled = 0;
+    private int distanceTraveled = 0;
 
-    public int getSpeed() {
-        return this.speed;
+    int getSpeed() {
+        return speed;
     }
 
-    public void setSpeed(int speed) {
+    void setSpeed(int speed) {
         this.speed = speed;
     }
 
-    public String getName() {
-        return this.name;
+    String getName() {
+        return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
-    public void moveForAnHour(Race race) {
-        // update distanceTraveled
+    int getDistanceTraveled() {
+        return distanceTraveled;
     }
+
+    void updateDistanceTraveled(int distance) {
+        distanceTraveled += distance;
+    }
+
+    abstract void moveForAnHour(Race race);
 }
