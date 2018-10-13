@@ -2,6 +2,7 @@ package com.codecool;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Comparator;
 
 public class Race {
 
@@ -28,9 +29,20 @@ public class Race {
     }
 
     private void printRaceResults() {
+        vehicles.sort(Comparator.comparing(Vehicle::getDistanceTraveled).reversed());
         for (Vehicle vehicle: vehicles) {
-            System.out.println(vehicle.getName() + ": " + vehicle.getDistanceTraveled());
+            System.out.println("Name: " + vehicle.getName() + " - Type: " + vehicle.getClass().getSimpleName() +
+                    " - Distance traveled: " + vehicle.getDistanceTraveled());
         }
+    }
+
+    boolean isThereABrokenTruck() {
+        for (Vehicle vehicle: vehicles) {
+            if (vehicle.getBreakDownTurnsLeft() > 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args) {

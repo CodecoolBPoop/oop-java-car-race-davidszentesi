@@ -5,6 +5,7 @@ public abstract class Vehicle {
     private int speed;
     private String name;
     private int distanceTraveled = 0;
+    private int breakDownTurnsLeft = 0;
 
     int getSpeed() {
         return speed;
@@ -28,6 +29,14 @@ public abstract class Vehicle {
 
     void updateDistanceTraveled(int distance) {
         distanceTraveled += distance;
+    }
+
+    int getBreakDownTurnsLeft() {
+        return breakDownTurnsLeft;
+    }
+
+    void setBreakDownTurnsLeft(int breakDownTurnsLeft) {
+        this.breakDownTurnsLeft = breakDownTurnsLeft;
     }
 
     abstract void moveForAnHour(Race race);

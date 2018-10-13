@@ -23,7 +23,16 @@ public class Car extends Vehicle {
         setName(carNames[pickedNumberForFirstName] + carNames[pickedNumberForLastName]);
     }
 
+    @Override
     public void moveForAnHour(Race race) {
+        int actualSpeed = getSpeed();
+
+        if (race.isThereABrokenTruck()) {
+            setSpeed(75);
+        } else {
+            setSpeed(actualSpeed);
+        }
+
         updateDistanceTraveled(getSpeed());
     }
 

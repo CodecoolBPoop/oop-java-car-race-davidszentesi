@@ -11,13 +11,23 @@ public class Motorcycle extends Vehicle {
         setName("Motorcycle " + nameNumber++);
     }
 
+    @Override
     public void moveForAnHour(Race race) {
         Random randomNumber = new Random();
         int pickedNumberForSlowing = randomNumber.nextInt(45) + 6;
 
         if (Weather.isRaining()) {
             setSpeed(100 - pickedNumberForSlowing);
+
+            int actualSpeed = getSpeed();
+
+            if (race.isThereABrokenTruck() && getSpeed() > 75) {
+                setSpeed(75);
+            } else if (!race.isThereABrokenTruck()) {
+                setSpeed(actualSpeed);
+            }
         }
+
         updateDistanceTraveled(getSpeed());
     }
 }
