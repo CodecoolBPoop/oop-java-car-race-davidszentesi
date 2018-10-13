@@ -21,9 +21,6 @@ public class Race {
             Weather.setRaining();
             for (Vehicle vehicle: vehicles) {
                 vehicle.moveForAnHour(this);
-                System.out.println(Weather.isRaining());
-                System.out.println(vehicle.getName() + ": " + vehicle.getDistanceTraveled());
-                System.out.println();
             }
         }
     }
